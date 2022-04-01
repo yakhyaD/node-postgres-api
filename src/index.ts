@@ -1,13 +1,9 @@
-import dotenv from "dotenv";
-
+import "./loadEnv";
 import { app } from "./server";
-import pool from "./db";
-dotenv.config();
+import logger from "./utils/logger";
+
+// dotenv.config();
 
 const PORT = process.env.PORT || 5000;
 
-// pool.connect().then(() => {
-//     console.log("Connected to database");
-// });
-
-app.listen(PORT, () => console.log(`server listening on port ${PORT}`));
+app.listen(PORT, () => logger.info(`server listening on port ${PORT}`));

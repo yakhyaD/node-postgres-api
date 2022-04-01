@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import logger from "../utils/logger";
 import pool from "../db";
 
 
@@ -10,7 +11,7 @@ export const getAllPosts = async (_: Request, res: Response) => {
         const results = await pool.query("SELECT * FROM post limit 10");
         return res.json({ posts: results.rows });
     } catch (error) {
-        console.error(error.message);
+        logger.error(error.message);
         return res.status(500).json({ error: error.message });
     }
 }
@@ -28,7 +29,7 @@ export const getOnePost = async (req: Request, res: Response) => {
         }
         return res.json({ post: results.rows[0] });
     } catch (error) {
-        console.error(error.message);
+        logger.error(error.message);
         return res.status(500).json({ error: error.message });
     }
 }
@@ -40,7 +41,7 @@ export const editPost = async (req: Request, res: Response) => {
         await pool.query("UPDATE post SET title = $1, content = $2 WHERE id = $3", [title, content, id]);
         return res.json({ message: "post edited successfully" });
     } catch (error) {
-        console.error(error.message);
+        logger.error(error.message);
         return res.status(500).json({ error: error.message });
     }
 }
@@ -51,7 +52,7 @@ export const deletePost = async (req: Request, res: Response) => {
         await pool.query("DELETE FROM post WHERE id = $1", [id]);
         return res.json({ message: "post deleted successfully" });
     } catch (error) {
-        console.error(error.message);
+        logger.error(error.message);
         return res.status(500).json({ error: error.message });
     }
 }
