@@ -1,5 +1,6 @@
 import express from "express";
 import morgan from "morgan";
+import BaseRouter from "./routes";
 
 export const app = express();
 
@@ -12,6 +13,4 @@ if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
 }
 
-app.get("/", (_, res) => {
-    res.json({ "message": "Nodejs Postgres API" });
-})
+app.use("/api", BaseRouter);
