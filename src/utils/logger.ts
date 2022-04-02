@@ -19,7 +19,7 @@ const logger = createLogger({
  * to `combined.log. Write all logs error (and below) to `error.log`.
  * For development, print to the console.
  */
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV === 'production') {
 
     const fileFormat = format.combine(
         format.timestamp(),

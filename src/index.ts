@@ -1,6 +1,7 @@
 import "./loadEnv";
 import { app } from "./server";
 import logger from "./utils/logger";
+import "./cacheManager";
 
 // dotenv.config();
 

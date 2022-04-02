@@ -1,2 +1,4 @@
 {"level":"info","message":"server listening on port 4000","timestamp":"2022-04-01T23:17:18.029Z"}
 {"level":"error","message":"invalid input syntax for integer: \"qefq\"","timestamp":"2022-04-01T23:19:05.687Z"}
+{"level":"info","message":"server listening on port 4000","timestamp":"2022-04-02T20:29:15.832Z"}
+{"level":"info","message":"server listening on port 4000","timestamp":"2022-04-02T20:29:57.086Z"}
